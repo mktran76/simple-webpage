@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Homepage</title>
+  <meta name="description" content="A clean simple homepage template with inline CSS" />
+  <style>
+    /* Simple reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; background: #f7f8fb; }
+
+    /* Container */
+    .site { display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* Header / Nav */
+    header { background: white; box-shadow: 0 1px 6px rgba(20,20,40,0.06); }
+    .container { width: min(1100px, 94%); margin: 0 auto; padding: 1rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: inherit; }
+    .logo { width: 40px; height: 40px; background: linear-gradient(135deg,#4f46e5,#06b6d4); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+    nav a { margin-left: 1rem; text-decoration: none; color: #374151; font-weight: 500; }
+    .cta { padding: .5rem .9rem; background: #4f46e5; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-items: center; padding: 3.5rem 0; }
+    .hero-inner { display: flex; flex-direction: column; gap: 1rem; }
+    h1 { margin: 0; font-size: clamp(1.6rem, 3.6vw, 2.4rem); line-height: 1.05; color: #0f172a; }
+    p.lead { margin: 0; color: #475569; max-width: 56ch; }
+
+    .hero-illustration { background: linear-gradient(180deg,#eef2ff 0%, #fff 100%); border-radius: 12px; padding: 1.25rem; display: grid; place-items: center; min-height: 180px; box-shadow: 0 6px 24px rgba(99,102,241,0.08); }
+
+    .buttons { display: flex; gap: .75rem; margin-top: .75rem; }
+    .btn { padding: .65rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: .5rem; }
+    .btn-outline { border: 1px solid #e6e9f2; background: white; color: #374151; }
+    .btn-primary { background: #06b6d4; color: white; }
+
+    /* Features */
+    .features { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 2rem 0; }
+    .card { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 6px 18px rgba(17,24,39,0.04); }
+    .feature-title { margin: 0 0 .5rem 0; font-weight: 700; color: #0f172a; }
+    .feature-desc { margin: 0; color: #475569; font-size: .95rem; }
+
+    /* Footer */
+    footer { margin-top: auto; padding: 1.25rem 0; color: #6b7280; font-size: .9rem; }
+    .footer-inner { width: min(1100px, 94%); margin: 0 auto; display:flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+    /* Responsive layout for hero */
+    @media (min-width: 880px) {
+      .hero { grid-template-columns: 1fr 460px; gap: 2.5rem; }
+      .hero-illustration { min-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="container">
+        <a class="brand" href="#">
+          <span class="logo" aria-hidden="true">S</span>
+          <span class="brand-text">
+            <strong>SimpleSite</strong><br />
+            <small style="color:#6b7280;font-weight:600">A minimal homepage</small>
+          </span>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="#get-started">Get started</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <h1 id="hero-title">Build something simple, fast — and beautiful.</h1>
+          <p class="lead">A lightweight starting template for small projects, landing pages, or personal sites. Clean markup, responsive layout, and easy to customize.</p>
+
+          <div class="buttons" role="group" aria-label="Primary actions">
+            <a class="btn btn-primary" href="#get-started">Start now</a>
+            <a class="btn btn-outline" href="#learn-more">Learn more</a>
+          </div>
+
+          <div id="features" class="features" aria-hidden="false">
+            <article class="card" aria-labelledby="f1">
+              <h3 id="f1" class="feature-title">Fast to edit</h3>
+              <p class="feature-desc">Simple HTML + CSS structure so you can change content quickly without hunting through many files.</p>
+            </article>
+
+            <article class="card" aria-labelledby="f2">
+              <h3 id="f2" class="feature-title">Responsive</h3>
+              <p class="feature-desc">Layout adapts for phones, tablets, and desktops using CSS grid and flexible units.</p>
+            </article>
+
+            <article class="card" aria-labelledby="f3">
+              <h3 id="f3" class="feature-title">Accessible</h3>
+              <p class="feature-desc">Semantic elements, clear focusable links, and readable contrast for better accessibility.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero-illustration" aria-hidden="true">
+            <a href="page1.html" 
+                style="display: inline-block; margin: 10px; padding: 10px 20px; 
+                background: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
+                Go to Page 1
+            </a>
+
+            <a href="page2.html" 
+                style="display: inline-block; margin: 10px; padding: 10px 20px; 
+                background: #2196F3; color: white; text-decoration: none; border-radius: 5px;">
+                Go to Page 2
+            </a>
+          <!-- Simple illustration placeholder -->
+          <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract illustration">
+            <rect x="0" y="0" width="220" height="140" rx="10" fill="white"/>
+            <circle cx="60" cy="60" r="36" fill="#eef2ff"/>
+            <rect x="110" y="30" width="90" height="60" rx="8" fill="#ecfeff"/>
+            <rect x="20" y="100" width="180" height="10" rx="5" fill="#eef2ff"/>
+            <text x="20" y="20" font-family="sans-serif" font-size="12" fill="#374151">Your visual here</text>
+          </svg>
+        </aside>
+      </section>
+
+      <section id="about" style="width:100%; margin-bottom:2rem;">
+        <div class="card" style="padding:1.25rem;">
+          <h2 style="margin-top:0;">About this template</h2>
+          <p style="margin:0;color:#475569;">This single-file template keeps everything in one HTML file with internal CSS so it's easy to duplicate, tweak, and deploy. Replace copy, swap colors, or add your images — all straightforward.</p>
+        </div>
+      </section>
+
+      <section id="contact" style="width:100%; margin-bottom:2.5rem;">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <form class="card" style="flex:1; min-width:260px;" onsubmit="event.preventDefault(); alert('Form submitted (demo)');">
+            <h3 style="margin-top:0;">Get in touch</h3>
+            <label style="display:block;margin-bottom:.5rem;">
+              <span style="display:block;font-weight:600;margin-bottom:.25rem;">Email</span>
+              <input type="email" required placeholder="you@example.com" style="width:100%;padding:.6rem;border:1px solid #e6e9f2;border-radius:8px;">
+            </label>
+            <label style="display:block;margin-bottom:.5rem;">
+              <span style="display:block;font-weight:600;margin-bottom:.25rem;">Message</span>
+              <textarea rows="4" placeholder="Say hi..." style="width:100%;padding:.6rem;border:1px solid #e6e9f2;border-radius:8px;"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit" style="border:0;">Send message</button>
+          </form>
+
+          <div class="card" style="flex-basis:300px; min-width:260px;">
+            <h3 style="margin-top:0;">Contact info</h3>
+            <p style="margin:0 0 .5rem 0;">Email: <a href="mailto:hello@simplesite.example">hello@simplesite.example</a></p>
+            <p style="margin:0;">Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> SimpleSite — Built with a single HTML file</div>
+        <div><a href="#privacy" style="text-decoration:none;color:inherit">Privacy</a> · <a href="#terms" style="text-decoration:none;color:inherit">Terms</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small script to set the current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
